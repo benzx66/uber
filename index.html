@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>接单判断工具</title>
     <style>
+        /* 全局设置 box-sizing */
+        * {
+            box-sizing: border-box;
+        }
         /* 页面整体样式 */
         body {
             font-family: Arial, sans-serif;
@@ -37,7 +41,7 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             margin-bottom: 15px;
-            width: 100%;
+            width: 100%; /* 确保输入框不会超出父容器 */
         }
         input[type="button"] {
             background-color: #0056b3;
@@ -47,7 +51,7 @@
             border-radius: 4px;
             cursor: pointer;
             font-size: 18px;
-            width: 100%;
+            width: 100%; /* 让按钮在移动设备上全宽 */
         }
         input[type="button"]:hover {
             background-color: #003f8a;
