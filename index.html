@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>接单判断工具</title>
     <style>
-        /* 全局设置 box-sizing */
+        /* 全局设置 box-sizing 确保 padding 不会增加实际宽度 */
         * {
             box-sizing: border-box;
         }
+
         /* 页面整体样式 */
         body {
             font-family: Arial, sans-serif;
@@ -17,33 +18,39 @@
             padding: 20px;
             margin: 0;
         }
+
         /* 标题样式 */
         h2 {
             text-align: center;
             color: #0056b3;
         }
+
         /* 表单和结果区域样式 */
         form, .result {
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             max-width: 500px;
             margin: 0 auto 20px;
+            overflow: hidden; /* 防止内容溢出 */
         }
+
         label {
             font-size: 18px;
             margin-bottom: 5px;
         }
+
         input[type="number"] {
             padding: 12px;
             font-size: 16px;
             border: 1px solid #ccc;
             border-radius: 4px;
             margin-bottom: 15px;
-            width: 90%; /* 调整为95%，防止超出父容器 */
-            max-width: 100%; /* 确保不会超出 */
+            width: 98%; /* 调整为90%，防止超出父容器 */
+            max-width: 500px; /* 限制最大宽度 */
         }
+
         input[type="button"] {
             background-color: #0056b3;
             color: white;
@@ -52,32 +59,38 @@
             border-radius: 4px;
             cursor: pointer;
             font-size: 18px;
-            width: 98%; /* 同样对按钮宽度进行调整 */
-            max-width: 100%;
+            width: 90%; /* 同样对按钮宽度进行调整 */
+            max-width: 500px;
         }
+
         input[type="button"]:hover {
             background-color: #003f8a;
         }
+
         /* 结果显示样式 */
         .result p {
             font-size: 18px;
             line-height: 1.6;
         }
+
         /* 结论样式 */
         #result {
             font-weight: bold;
             font-size: 20px;
             color: #333;
         }
+
         /* 移动设备优化 */
         @media (max-width: 768px) {
             body {
                 padding: 10px;
             }
+
             input[type="number"], input[type="button"] {
                 font-size: 16px;
                 padding: 12px;
             }
+
             h2 {
                 font-size: 24px;
             }
@@ -123,7 +136,7 @@
 
             var currentHour = new Date().getHours();
             var minPerKmRate;
-            if ((currentHour >= 11 && currentHour <= 14) || (currentHour >= 17 &&当前Hour <= 20)) {
+            if ((currentHour >= 11 && currentHour <= 14) || (currentHour >= 17 && currentHour <= 20)) {
                 peakHours = true;
                 minPerKmRate = minPerKmRatePeak;
             } else {
