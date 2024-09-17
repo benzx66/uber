@@ -41,7 +41,8 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             margin-bottom: 15px;
-            width: 100%; /* 确保输入框不会超出父容器 */
+            width: 98%; /* 调整为95%，防止超出父容器 */
+            max-width: 100%; /* 确保不会超出 */
         }
         input[type="button"] {
             background-color: #0056b3;
@@ -51,7 +52,8 @@
             border-radius: 4px;
             cursor: pointer;
             font-size: 18px;
-            width: 100%; /* 让按钮在移动设备上全宽 */
+            width: 95%; /* 同样对按钮宽度进行调整 */
+            max-width: 100%;
         }
         input[type="button"]:hover {
             background-color: #003f8a;
@@ -121,7 +123,7 @@
 
             var currentHour = new Date().getHours();
             var minPerKmRate;
-            if ((currentHour >= 11 && currentHour <= 14) || (currentHour >= 17 && currentHour <= 20)) {
+            if ((currentHour >= 11 && currentHour <= 14) || (currentHour >= 17 &&当前Hour <= 20)) {
                 peakHours = true;
                 minPerKmRate = minPerKmRatePeak;
             } else {
